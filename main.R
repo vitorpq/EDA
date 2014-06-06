@@ -1,0 +1,8 @@
+mydata <- read.csv("household_power_consumption.txt", sep=";", na.strings='?', colClasses=c('factor', 'character', 'numeric', 'numeric','numeric','numeric','numeric','numeric','numeric'))
+mydata <- transform(mydata, Date = as.Date(Date, format="%d/%m/%Y"))
+# mydata <- transform(mydata, Time = as.Date(Time, format="%H:%M:%S"))
+teste <- subset(mydata, Date >= "2007-02-01" & Date <= "2007-02-02")
+write.table(teste , file = "data_subset.txt", sep = ";", col.names = TRUE, row.names = FALSE)
+# png("plot1.png",  width = 480, height = 480, units = "px")
+# hist(teste$Global_active_power, col='red', xlab=("Global Active Power (kilowatts)"), main="Global Active Power")
+# dev.off()
